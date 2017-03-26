@@ -64,7 +64,7 @@ class RegisterPageViewController: UIViewController {
         UserDefaults.standard.set(userPassRepeat, forKey:"userPassRepeat");
         UserDefaults.standard.synchronize();
         
-        var request = URLRequest(url: URL(string: "https://medicaldb.heroku.com/auth/register")!)
+        var request = URLRequest(url: URL(string: "https://medicaldb.herokuapp.com/auth/register")!)
         
         request.httpMethod = "POST"
         
