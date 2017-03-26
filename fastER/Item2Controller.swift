@@ -43,6 +43,33 @@ class Item2Controller: UIViewController {
         self.present(myAlert, animated:true, completion:nil);
         
     }
+    @IBAction func DOB(_ sender: Any) {
+        DateofBirth.resignFirstResponder()
+    }
+    @IBAction func Gender(_ sender: Any) {
+        Gender.resignFirstResponder()
+    }
+    @IBAction func Race(_ sender: Any) {
+        Race.resignFirstResponder()
+    }
+    @IBAction func Address(_ sender: Any) {
+        Address.resignFirstResponder()
+    }
+    @IBAction func EmergencyContact(_ sender: Any) {
+        EmergencyContact.resignFirstResponder()
+    }
+    @IBAction func EMContact(_ sender: Any) {
+        EmergencyContactNumber.resignFirstResponder()
+    }
+    @IBAction func Conditions(_ sender: Any) {
+        KnownConditions.resignFirstResponder()
+    }
+    @IBAction func Surgeries(_ sender: Any) {
+        Surgeries.resignFirstResponder()
+    }
+    @IBAction func Insurance(_ sender: Any) {
+        Insurance.resignFirstResponder()
+    }
 
     @IBAction func Save(_ sender: Any) {
         let FirstName = self.FirstName.text

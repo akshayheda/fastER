@@ -34,6 +34,13 @@ class RegisterViewController: UIViewController {
     }
     
     
+    @IBAction func UsernamePrimaryFunction(_ sender: Any) {
+        Username?.resignFirstResponder()
+    }
+    
+    @IBAction func PasswordPrimaryFunction(_ sender: Any) {
+        Password?.resignFirstResponder()
+    }
     @IBAction func Login(_ sender: Any) {
         let Username = self.Username.text
         let Password = self.Password.text

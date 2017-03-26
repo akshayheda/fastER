@@ -47,6 +47,14 @@ extension MapPage : CLLocationManagerDelegate {
         }
     }
     
+    
+    
+    
+    
+    
+    
+    
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         var locValue:CLLocationCoordinate2D = manager.location!.coordinate
         Long.text = String (locValue.longitude)
@@ -55,6 +63,8 @@ extension MapPage : CLLocationManagerDelegate {
         let span = MKCoordinateSpanMake(0.05, 0.05)
         let region = MKCoordinateRegion(center: location.coordinate, span: span)
         mapView.setRegion(region, animated: true)
+        
+        mapView.showsUserLocation = true
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {

@@ -248,6 +248,7 @@
 				TargetAttributes = {
 					BA16E01F1E871CAD0054EA8C = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 34729D79DG;
 						ProvisioningStyle = Automatic;
 					};
 					BA16E0331E871CAE0054EA8C = {
@@ -524,6 +525,7 @@
 			baseConfigurationReference = 2ADFDFC2C979864CCC3E117B /* Pods-fastER.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 34729D79DG;
 				INFOPLIST_FILE = fastER/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -538,6 +540,7 @@
 			baseConfigurationReference = CD48D6140525C1BAEA68DE14 /* Pods-fastER.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 34729D79DG;
 				INFOPLIST_FILE = fastER/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

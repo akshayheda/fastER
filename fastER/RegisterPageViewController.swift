@@ -36,6 +36,16 @@ class RegisterPageViewController: UIViewController {
         
     }
 
+    @IBAction func EmailKeyboard(_ sender: Any) {
+        userEmailAddress?.resignFirstResponder()
+    }
+    @IBAction func PasswordKeyboard(_ sender: Any) {
+        userPassword?.resignFirstResponder()
+    }
+    @IBAction func RepeatPasswordKeyboard(_ sender: Any) {
+        userRepeatPassword?.resignFirstResponder()
+    }
+    
     @IBAction func RegisterButtonPressed(_ sender: UIButton) {
         let userFirstName = self.userFirstName.text
         let userLastName = self.userLastName.text

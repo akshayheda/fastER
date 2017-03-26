@@ -32,12 +32,11 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
-	<key>UISupportedInterfaceOrientations~ipad</key>
-	<array>
-		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationPortraitUpsideDown</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
-	</array>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Need to find Hospitals</string>
+	<key>NSLocationUsageDescription</key>
+	<string>Need to find Hospitals</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Need to find Hospitals</string>
 </dict>
 </plist>
