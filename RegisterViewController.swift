@@ -10,6 +10,25 @@ import UIKit
 
 class RegisterViewController: UIViewController {
 
+    @IBOutlet weak var Email: UITextField!
+    @IBOutlet weak var Password: UITextField!
+    
+    func displayMyAlertMessage(userMessage:String){
+        var myAlert = UIAlertController(title:"Alert", message: userMessage, preferredStyle:UIAlertControllerStyle.alert);
+        let okAction = UIAlertAction(title:"Ok", style: UIAlertActionStyle.default, handler: nil);
+        myAlert.addAction(okAction);
+        
+        self.present(myAlert, animated:true, completion:nil);
+    }
+    @IBAction func Login(_ sender: Any) {
+        let Email = self.Email.text
+        let Password = self.Password.text
+        
+        if(Email!.isEmpty || Password!.isEmpty){
+            displayMyAlertMessage(userMessage: "All Fields are Required");
+            return;
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 

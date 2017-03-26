@@ -66,6 +66,18 @@ class Item2Controller: UIViewController {
             displayMyAlertMessage(userMessage: "All Fields are Required");
             return;
         }
+        
+        else {
+                
+            var myAlert = UIAlertController(title:"Alert", message:"Saved!", preferredStyle:UIAlertControllerStyle.alert);
+            
+            let okAction = UIAlertAction(title:"Ok", style:UIAlertActionStyle.default);
+            
+            myAlert.addAction(okAction);
+            self.present(myAlert, animated:true, completion:nil);
+            
+            }
+        
     }
     
 
