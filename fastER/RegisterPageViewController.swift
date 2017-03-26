@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ObjectMapper
 
 class RegisterPageViewController: UIViewController {
     @IBOutlet weak var userFirstName: UITextField!
@@ -63,11 +64,31 @@ class RegisterPageViewController: UIViewController {
         UserDefaults.standard.set(userPassRepeat, forKey:"userPassRepeat");
         UserDefaults.standard.synchronize();
         
-        var request = URLRequest(url: URL(string: "https://medicaldb.heroku.com")!)
+        var request = URLRequest(url: URL(string: "https://medicaldb.heroku.com/auth/register")!)
         
         request.httpMethod = "POST"
         
-        let json = try? JSONSerialization.data(withJSONObject: User(UserName: userName!, Password: userPass!, Email: userEmail!, FirstName: userFirstName!, MiddleName: "", LastName: userLastName!, Title: "Mr."), options: <#T##JSONSerialization.WritingOptions#>)
+        let user = User(UserName: userName!, Address: "tempaddress", Password: userPass!, Email: userEmail!, FirstName: userFirstName!, MiddleName: "test", LastName: userLastName!, Title: "Mr.");
+        let json = Mapper().toJSON(user)
+        
+        request.httpBody = try? JSONSerialization.data(withJSONObject: json)
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data, error == nil else {
+                print("error=\(error)")
+                return
+            }
+            
+            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
+                //Proceed from here
+                print(httpStatus)
+            }
+            
+            let responseString = String(data: data, encoding: .utf8)
+            print(responseString)
+            // Check the response string from here
+        }
+        task.resume()
      
         //Display alert message with confirmation
         var myAlert = UIAlertController(title:"Alert", message:"Registration is successful. Thank you!", preferredStyle:UIAlertControllerStyle.alert);
