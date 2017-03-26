@@ -15,6 +15,7 @@ class RegisterPageViewController: UIViewController {
 
     @IBOutlet weak var userPassword: UITextField!
     @IBOutlet weak var userRepeatPassword: UITextField!
+    @IBOutlet weak var userName: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -40,6 +41,7 @@ class RegisterPageViewController: UIViewController {
         let userEmail = self.userEmailAddress.text
         let userPass = self.userPassword.text
         let userPassRepeat = self.userRepeatPassword.text
+        let userName = self.userName.text
         
    
         //Check for empty fields
@@ -65,7 +67,7 @@ class RegisterPageViewController: UIViewController {
         
         request.httpMethod = "POST"
         
-    
+        let json = try? JSONSerialization.data(withJSONObject: User(UserName: userName!, Password: userPass!, Email: userEmail!, FirstName: userFirstName!, MiddleName: "", LastName: userLastName!, Title: "Mr."), options: <#T##JSONSerialization.WritingOptions#>)
      
         //Display alert message with confirmation
         var myAlert = UIAlertController(title:"Alert", message:"Registration is successful. Thank you!", preferredStyle:UIAlertControllerStyle.alert);

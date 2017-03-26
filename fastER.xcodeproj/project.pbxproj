@@ -14,6 +14,7 @@
 		BA16E0441E871CAE0054EA8C /* fastERUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA16E0431E871CAE0054EA8C /* fastERUITests.swift */; };
 		BA16E0561E87271A0054EA8C /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA16E0551E87271A0054EA8C /* RegisterViewController.swift */; };
 		BA16E0581E8728F40054EA8C /* RegisterPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA16E0571E8728F40054EA8C /* RegisterPageViewController.swift */; };
+		BA30163E1E87BE0B00D75695 /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA30163D1E87BE0B00D75695 /* ObjectMapper.framework */; };
 		BA7B3E841E877C43009032F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA7B3E821E877C43009032F9 /* Main.storyboard */; };
 		BA7B3E861E878C9F009032F9 /* Item1Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7B3E851E878C9F009032F9 /* Item1Controller.swift */; };
 		BA7B3E881E879223009032F9 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = BA7B3E871E879223009032F9 /* Podfile */; };
@@ -56,6 +57,7 @@
 		BA16E0451E871CAE0054EA8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BA16E0551E87271A0054EA8C /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterViewController.swift; path = ../RegisterViewController.swift; sourceTree = "<group>"; };
 		BA16E0571E8728F40054EA8C /* RegisterPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterPageViewController.swift; sourceTree = "<group>"; };
+		BA30163D1E87BE0B00D75695 /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = "../../Library/Developer/Xcode/DerivedData/fastER-gbfklejjcnbegzfnjzpsrkdctkaz/Build/Products/Debug-iphonesimulator/ObjectMapper/ObjectMapper.framework"; sourceTree = "<group>"; };
 		BA7B3E831E877C43009032F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BA7B3E851E878C9F009032F9 /* Item1Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item1Controller.swift; sourceTree = "<group>"; };
 		BA7B3E871E879223009032F9 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -70,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA30163E1E87BE0B00D75695 /* ObjectMapper.framework in Frameworks */,
 				CFD8398598540400196B624F /* Pods_fastER.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -162,6 +165,7 @@
 		E37A10921097759F5172E45F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BA30163D1E87BE0B00D75695 /* ObjectMapper.framework */,
 				86F5FA0AC77FBDBBC3DDDF8A /* Pods_fastER.framework */,
 			);
 			name = Frameworks;
