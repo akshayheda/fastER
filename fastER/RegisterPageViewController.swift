@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ObjectMapper
 
 class RegisterPageViewController: UIViewController {
     @IBOutlet weak var userFirstName: UITextField!
@@ -15,6 +16,7 @@ class RegisterPageViewController: UIViewController {
 
     @IBOutlet weak var userPassword: UITextField!
     @IBOutlet weak var userRepeatPassword: UITextField!
+    @IBOutlet weak var userName: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,7 +28,7 @@ class RegisterPageViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     func displayMyAlertMessage(userMessage:String){
-        var myAlert = UIAlertController(title:"Alert", message: userMessage, preferredStyle:UIAlertControllerStyle.alert);
+        let myAlert = UIAlertController(title:"Alert", message: userMessage, preferredStyle:UIAlertControllerStyle.alert);
         let okAction = UIAlertAction(title:"Ok", style: UIAlertActionStyle.default, handler: nil);
         myAlert.addAction(okAction);
         
@@ -40,6 +42,7 @@ class RegisterPageViewController: UIViewController {
         let userEmail = self.userEmailAddress.text
         let userPass = self.userPassword.text
         let userPassRepeat = self.userRepeatPassword.text
+        let userName = self.userName.text
         
    
         //Check for empty fields
@@ -54,21 +57,44 @@ class RegisterPageViewController: UIViewController {
             return;
         }
         //Store Data
-        UserDefaults.standard.set(userEmail, forKey:"userEmail");
+        /*UserDefaults.standard.set(userEmail, forKey:"userEmail");
         UserDefaults.standard.set(userFirstName, forKey:"userFirstName");
         UserDefaults.standard.set(userLastName, forKey:"userLastName");
         UserDefaults.standard.set(userPass, forKey:"userPass");
         UserDefaults.standard.set(userPassRepeat, forKey:"userPassRepeat");
-        UserDefaults.standard.synchronize();
+        UserDefaults.standard.synchronize();*/
         
-        var request = URLRequest(url: URL(string: "https://medicaldb.heroku.com")!)
+        var request = URLRequest(url: URL(string: "https://medicaldb.herokuapp.com/auth/register")!);
         
-        request.httpMethod = "POST"
+        request.httpMethod = "POST";
         
-    
+        let user = User(UserName: userName!, Address: "tempaddress", Password: userPass!, Email: userEmail!, FirstName: userFirstName!, MiddleName: "test", LastName: userLastName!, Title: "Mr.");
+        let json = Mapper().toJSON(user);
+        
+        print(json)
+        
+        request.httpBody = try? JSONSerialization.data(withJSONObject: json)
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data, error == nil else {
+                print("error=\(error)")
+                return
+            }
+            
+            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
+                //Proceed from here
+                print(httpStatus)
+                return
+            }
+            
+            let responseData = String(data: data, encoding: .utf8)
+            // Check the response string from here
+            print(responseData)
+        }
+        task.resume()
      
         //Display alert message with confirmation
-        var myAlert = UIAlertController(title:"Alert", message:"Registration is successful. Thank you!", preferredStyle:UIAlertControllerStyle.alert);
+        let myAlert = UIAlertController(title:"Alert", message:"Registration is successful. Thank you!", preferredStyle:UIAlertControllerStyle.alert);
         
         let okAction = UIAlertAction(title:"Ok", style:UIAlertActionStyle.default) { action in
             self.dismiss(animated: true, completion:nil);

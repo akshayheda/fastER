@@ -16,6 +16,8 @@ class MapPage: UIViewController, UITabBarDelegate{
     
     @IBOutlet weak var mapView: MKMapView!
 
+    @IBOutlet weak var Long: UILabel!
+    @IBOutlet weak var Lat: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +48,9 @@ extension MapPage : CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        var locValue:CLLocationCoordinate2D = manager.location!.coordinate
+        Long.text = String (locValue.longitude)
+        Lat.text = String (locValue.latitude)
         guard let location = locations.first else { return }
         let span = MKCoordinateSpanMake(0.05, 0.05)
         let region = MKCoordinateRegion(center: location.coordinate, span: span)
